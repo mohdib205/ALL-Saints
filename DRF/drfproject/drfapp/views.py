@@ -1,11 +1,20 @@
 from django.shortcuts import render
 from drfapp.models import *
 from drfapp.serializers import *
-from rest_framework.decorators import api_view
-from rest_framework.response import Response
-# Create your views here.
+from rest_framework.decorators import api_view , authentication_classes , permission_classes
+from rest_framework_simplejwt.authentication import JWTAuthentication
 
+from rest_framework.response import Response
+from rest_framework_simplejwt.views import (
+    TokenObtainPairView,
+    TokenRefreshView,
+)
+from rest_framework.permissions import IsAuthenticated
+
+# Create your views here.
 @api_view(["GET", "POST","PUT","PATCH","DELETE"])
+@permission_classes([IsAuthenticated])  
+@authentication_classes([JWTAuthentication])
 def product_view(request):
     if request.method=="GET":
         products=Products.objects.all()

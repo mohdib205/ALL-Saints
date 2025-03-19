@@ -27,3 +27,4 @@ class CarousalSerializer(serializers.ModelSerializer):
     class Meta:
         model=Carousal
         fields= "__all__" 
+        

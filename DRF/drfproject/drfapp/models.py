@@ -15,9 +15,22 @@ class Orders(models.Model):
     product=models.ForeignKey(Products, on_delete=models.CASCADE) #One to Many 
     quantity= models.IntegerField()
 
+p1=Products()
+o1=Orders(p1)
+print(o1)
+
+
+
+
+
+
+
+
+
+
+
 class Carousal(models.Model):
     id=models.AutoField(primary_key=True)
     image=models.ImageField(upload_to="carousal/")
     files=models.FileField()
 
-    
