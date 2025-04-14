@@ -1,0 +1,117 @@
+
+
+
+
+
+
+
+
+
+
+
+-- SQL CLAUSES
+
+-- SQL clause helps us to retrieve a set or 
+-- bundles of records from the table.
+-- SQL clause helps us to specify a condition
+-- on the columns or the records of a table.
+
+-- EXAMPLES WHERE , ORDER BY , GROUP BY , HAVING 
+
+-- sorting 
+
+use Demo
+
+select * from Customer
+order by Age  -- ascending order
+
+select * from Customer
+order by Name
+
+select * from Customer
+order by Age,Name
+
+-- decsending order
+
+Select * from Customer
+order by Age desc
+
+
+
+-- Aggregate Functions:
+
+--Aggregate functions in SQL are functions that perform
+--calculations on a set of values and
+--return a single summary value.
+
+
+
+--example:
+
+--SUM() adds them all up.
+--AVG()  finds the average.
+--COUNT()  tells  how many there are.
+--MAX()   gives  the biggest value.
+--MIN()   gives  the smallest value.
+
+
+select Avg(Age) as Average_Age from Customer
+
+select MAx(Age) from Customer
+
+select MAx(Age) a from Customer
+
+
+select * from Customer
+
+
+
+
+-- grouping 
+
+--Grouping means categorizing the data based on
+--shared characteristics/values.
+--Grouping takes rows that have the same value 
+--in a certain column and puts them together. 
+--Once grouped, you can then do something useful 
+--with the grouped data, like calculating totals,
+--averages, or counts for each group.
+--The concept is :  group similar data and 
+--perform calculations on the group.
+
+
+select Gender from Customer
+group by Gender
+
+select Avg(AGe) as Avg_Age , Gender from Customer
+group by Gender
+
+select Avg(AGe) as Avg_Age , 
+Max(Age) as maximum_age ,
+COunt(id) as number_ofCustomers,
+Gender from Customer
+
+group by Gender
+
+
+
+
+
+calculate the total and average age of customers
+location wise .
+
+
+
+
+
+
+
+select MAx(Age) from Customer
+
+--The HAVING clause in SQL is used to filter groups of data
+--after grouping has been performed. 
+--It is like the WHERE clause, but while WHERE works
+--on individual rows, HAVING works on grouped data.
+
+
+use Demo

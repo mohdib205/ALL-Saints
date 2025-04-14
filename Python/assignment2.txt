@@ -1,0 +1,57 @@
+
+Total: 30 Marks
+
+2 Marks Each
+
+1. WAP to create a new list of lengths of each element by iterating over a given tuple using a for loop.  
+   atuple = ('Class', 'School', 'Teacher', 'Building', 'Blackboard', 'Chalk', 'Student')
+
+2. WAP to keep only those elements from a list whose cubes are greater than 500.
+
+3. WAP to calculate the factorial of a user inputted number using a while loop.
+
+4. Create a function that converts a given temperature from Celsius to Fahrenheit.
+
+5. Create a function that accepts any number of integer arguments and returns their average.
+
+6. Write a function that takes a list and returns a new list with only the unique elements (remove duplicates).
+
+7. WAP to print the sum of all digits of the user inputted number without converting into a string.
+
+8. WAP to print the minimum number of the given list (don't use min and sort function).
+
+9. WAP to print the following pattern of asterisks:
+   
+   *
+   **
+   ***
+   ****
+
+   
+      
+  
+
+ 3 Marks Each
+
+10. WAP to count the occurrence of 'a' and 'e' in a given string using a for loop.  
+    String: I have a pen and an apple!
+
+11. WAP to calculate the count of each element in a list and give the result as a dictionary where the keys will be the elements of lists and values will be their counts.  
+    Example:  
+    Input: ["a", "b", "v", "a", "v", "a", "v", "c", "d", "a", "b"]  
+    Output: {'a': 4, 'b': 2, 'v': 3, 'c': 1, 'd': 1}
+
+12. Write a Python program that takes a nested dictionary representing students and their scores in various subjects, and calculates each student's total score across all subjects. 
+    The program should print a dictionary where the keys are student names and the values are their total scores.  
+    Example Input:  
+    
+    students_scores = {
+        "Aman": {"Math": 85, "Science": 90, "English": 78},
+        "Ratan": {"Math": 72, "Science": 88, "English": 80},
+        "Jack": {"Math": 95, "Science": 85, "English": 92}
+    }
+   
+    Output: {"Aman": 253, "Ratan": 240, "Jack": 272}
+
+13. Write a function that takes two integers as parameters and returns the count of prime numbers between them.  
+    For example, let's say the function name is count_primes, then count_primes(10, 30) should return the count of all prime numbers between 10 and 30.

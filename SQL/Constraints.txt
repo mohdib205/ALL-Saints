@@ -1,0 +1,166 @@
+--Constraints 
+--SQL Constraints are the rules applied to a data columns
+--we  specify the limit on the type of data that can be stored in a particular column in a table using constraints. 
+
+--A primary key is a unique identifier for each
+--record in a database table. Its purpose is to ensure
+--that every record is distinct and can be easily retrieved, 
+--updated, or referenced.
+--A primary key must always have a value (cannot be NULL) and 
+--must be unique for each row in the table
+
+--NOT Null + Unique=Primary Key
+
+--Unique: Ensures all values in a column are 
+--distinct.
+
+--Not Null: Prevents NULL values in a column, 
+--ensuring data presence.
+
+--Check: Ensures that all values in a column 
+--satisfy a specific condition.
+
+--Default: Assigns a default value to a column 
+--if no value is provided during insertion.
+
+create Table Teachers(
+Id int primary key,
+Name varchar(25) Not Null ,
+Age int  Check (Age>18) ,
+username varchar(15) Unique,
+Contact bigint default 100000
+)
+Insert into Teachers (Id ,Name, Age,username )
+values 
+(2,'jam',25,'qwer'  )
+
+select * from Teachers
+
+(1,'jam',25,'eess' , 878787 )
+
+
+
+
+
+
+
+
+
+--Foreign Key
+
+--A foreign key A foreign key is a constraint used to
+--enforce a relationship between two tables is a rule 
+--used to link two tables together in a database. 
+
+--It ensures that one table's column (called the foreign key) 
+--contains values that exist in another table's column 
+--(called the primary key).
+
+create table Customer(
+id int,
+Name varchar(20),
+Age int ,
+Location varchar(15),
+Gender varchar(10)
+
+);
+
+--adding constraints
+
+--general form:
+--alter table table_name
+--add constraint constraint_name Constraint(column) 
+
+
+
+select * from Customer
+alter table Customer
+alter column id int Not Null
+
+alter table Customer
+add Constraint PK_id primary key(id);
+
+alter table Customer 
+add constraint Unique_na Unique(Name);
+
+alter table Customer
+add constraint CK_Age Check(Age>15);
+
+
+
+
+
+
+--A foreign key is a constraint used to enforce a relationship 
+--between two tables. It ensures that the value in a column 
+--(or a set of columns) in one table matches a value in
+--the primary key (or unique key) of another table. 
+--This relationship helps maintain referential integrity by 
+--ensuring that data in the child table corresponds
+--to data in the parent table.
+
+--In simple terms:
+
+--A primary key is a unique identifier for each row in a table.
+--A foreign key is a column in one table that points 
+--to the primary key of another table.
+
+--CASCADE: Automatically updates or deletes child records 
+--when the parent record is updated or deleted.
+
+--SET NULL: Sets the foreign key column in the child table
+--to NULL when the parent record is deleted or updated.
+
+--RESTRICT: Prevents updates or deletions of parent records 
+--if there are dependent child records.  
+
+
+general form 
+
+--FOREIGN KEY (ChildColumn)
+--REFERENCES ParentTable(ParentColumn);
+
+
+
+--ALTER TABLE ChildTable
+--ADD CONSTRAINT FK_Name
+--FOREIGN KEY (ChildColumn)
+--REFERENCES ParentTable(ParentColumn);
+
+
+create table Orders (
+order_id int constraint Pk_orderid primary key,
+customer_id int ,
+Quantity smallint ,
+order_date date,
+foreign key (customer_id) references Customer(id)
+on delete cascade 
+);
+
+alter table Orders
+add constraint FK_C_order Foreign key(customer_id)
+references Customer(id) on delete cascade 
+
+
+select * from Orders
+
+Insert into Orders (order_id , customer_id , order_date,Quantity)
+values
+(100, 2 , '02-12-2924' , 12),
+(101, 1 , '02-12-2924' , 12),
+(102, 2 , '02-04-2000' , 6),
+(103, 2 , '11-28-1999' , 3);
+
+--Date Format   'Month-day-year'
+
+
+
+select * from Orders
+
+
+
+
+
+
+
+

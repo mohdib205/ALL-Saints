@@ -1,0 +1,52 @@
+
+CROSS JOIN 
+
+-- A Cross Join produces the Cartesian product of two tables,
+--  meaning it combines every row from the first
+ -- table with every row from the second table.
+--  It does not require any condition for joining.
+select * from Orders
+SELECT * FROM  customer cross join orders
+
+-- A subquery is a query nested inside another query. 
+It is executed first, and its result is
+--  used by the outer query. 
+Subqueries are often used to perform intermediate calculations
+ or filtering.
+
+-- subqueires helps in breaking complex problems in smaller steps
+
+--  Find customers older than the youngest customer.
+
+select * from Customer
+where age > (select min(age) from Customer)
+
+
+-- find Customer names who orders  in
+--  quantity less than 100.
+ 
+select Name from Customer 
+where id in 
+(select customer_id from orders where quantity <100 )
+ 
+-- Find customers who placed orders greater than the 
+ -- average order quantity.
+ 
+ select * from Customer where id in 
+ (select customer_id   from orders where 
+ Quantity >  (select avg(Quantity) from Orders))
+ 
+
+
+
+
+
+
+
+
+
+
+
+
+
+

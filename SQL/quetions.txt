@@ -1,0 +1,19 @@
+Given the string: my_str = "World", WAP to print the second last character? (use both positive and negative indexing)
+
+WAP to slice from the second character to the fifth character of a string "PythonProgramming"
+
+WAP to slice the last three characters of a string.
+
+WAP to reverse a string using slicing.
+
+Given str1= "Complete" , slice "etel" from str1.
+
+WAP to add the strings "Hello" and "World" with a space in between.
+
+WAP to check if a number is divisible by 7 . (Just result in True or False)
+
+WAP to print division , floor and remainder when 14 is divided by 4.
+
+
+
+

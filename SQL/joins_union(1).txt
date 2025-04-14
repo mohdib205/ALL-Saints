@@ -1,0 +1,135 @@
+-- Union and Union all
+
+-- In SQL, both UNION and UNION ALL are used to combine the results 
+-- of two or more SELECT queries.
+-- Ther are like operators are used to concatenate results of multiple SELECT 
+-- statements.
+-- union and union all : used to combine two tables horizontally
+select * from Customer
+union 
+select * from customercopy
+where age > 40
+
+select * from Customer
+union all
+select * from customercopy
+where age > 40
+
+select id,Name from Customer 
+where age>30
+union all
+select id,Name from Customer
+where gender='Male'
+
+
+
+
+
+select Name , id from customer
+union select order_id , customer_id from Orders
+-- Joins
+-- A JOIN clause is used to combine rows from two or more tables,
+ based on a related column between them.
+-- This is useful when we want to retrieve data from multiple tables 
+in a single query .
+
+-- Different Types of Joins:
+-- - Left join
+-- returns all rows from the left table, 
+even if there are no matches in the right table.
+
+-- RIGHT JOIN − 
+-- returns all rows from the right table, 
+even if there are no matches in the left table.
+
+-- FULL JOIN − returns rows when there is a match in one of the tables.
+-- Returns all records when there is a match in either left or right table.
+
+
+
+select * from Customer
+inner join Orders
+on Customer.id= Orders.customer_id
+
+
+select * from Customer
+left join Orders
+on Customer.id= Orders.customer_id
+
+
+select * from Customer
+right join Orders
+on Customer.id= Orders.customer_id
+
+
+--full outer join
+
+select * from Customer
+left join Orders
+on Customer.id= Orders.customer_id
+union
+select * from Customer
+right join Orders
+on Customer.id= Orders.customer_id
+
+
+
+
+-- write a query to display the name, age, location of those customers
+-- who have placed at least one order.
+select c.Name , c.age , c.location , o.order_id
+ from Customer  as c
+inner join orders as o
+on 
+c.id= o.customer_id;
+
+-- write a query to display Customer name and total number of orders 
+-- he/she have placed. 
+
+select c.Name , count(*)  as Total_orders from Customer as c
+inner join orders as o
+on c.id= o.customer_id
+group by o.customer_id 
+
+-- write query to print the name , age of all customers
+-- who have not placed any order yet.
+
+select Customer.Name , Customer.age from Customer
+left join orders
+on  Customer.id=orders.customer_id
+where order_id  is null
+;
+
+-- write a query to display the  order_id , customer name and
+-- Quantity of all orders where quantity is less than 150.
+
+
+-- write a query to display the Location and 
+-- total no of orders placed in that location
+-- and then sort the data in descending order .
+
+select c.Location , count(*)  as Total_orders
+ from Customer AS c
+inner join orders as o 
+on c.id= o.customer_id 
+group by c.Location
+order by Total_orders 
+
+
+
+ 
+
+
+
+
+-- order of execution of sql clauses 
+
+ -- from 
+--  where ,
+--  group by , 
+--  aggregation functions (sum,count,max , min , avg ), 
+--  having , 
+--  select 
+--  order by
+
+

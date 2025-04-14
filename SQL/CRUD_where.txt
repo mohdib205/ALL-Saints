@@ -1,0 +1,136 @@
+--Query
+--
+
+create database Demo
+
+--creating table 
+
+create table Students(
+Name varchar(20),
+Contact int,
+Branch varchar(20)
+);
+
+Select * from Students
+
+Insert into Students values 
+('Ibrahim' , 98989898 , 'CSE') ;
+
+Insert into Students (Name, contact, branch)
+values ('Shahid' , 787878 , 'CSE'),
+('Shahbaz', 666666 , 'CSE');
+
+Insert into Students (Name, branch) 
+values ('Noor',   'CSE');
+
+-- get/read , insert/create 
+
+select Name from Students
+select Name,branch from Students
+
+-- where  (filter/search)
+
+
+select * from Students 
+where NAME='ibrahim';
+
+select * from Students 
+where branch='CSE';
+--UPDATE
+
+update Students set contact=888888
+where Name='Ibrahim';
+update Students set contact=1212333 , branch='AI/ML'
+where name = 'Noor';
+
+
+
+
+select * from Students
+-- delete  CRUD(Create , Read , Update , delete)
+
+delete from Students 
+where Name='Ibrahim'
+delete from Students
+where branch='CSE'
+
+--create a table Named Customer with columns 
+-- id , Name , Age, Location, Gender .
+--insert 10 rows in it
+--perform CRUD
+
+create table Customer(
+id int ,
+Name varchar(20),
+Age int ,
+Location varchar(15),
+Gender varchar(10)
+
+);
+
+Insert into Customer (id , Name , Age, Location, Gender)
+values
+(1, 'Noor' , 29 , 'Bhopal' , 'Male'),
+(2, 'Ibrahim' , 28 , 'Bhopal' , 'Male'),
+(3, 'Isuf' , 45 , 'Delhi' , 'Male'),
+(4, 'Shaik' , 59 , 'Mumbai' , 'Male'),
+(5, 'Adil' , 34 , 'Mumbai' , 'Male'),
+(6, 'Salman' , 54 , 'Indore' , 'Male'),
+(7, 'Faiz' , 17 , 'Hydrabaad' , 'Male'),
+(8, 'Gyan' , 19 , 'Agra' , 'Male'),
+(9, 'Vivek' , 38 , 'Indore' , 'Male'),
+(10, 'Shahbaz' , 40 , 'Bhopal' , 'Male'),
+(11, 'Ayesha' , 36 , 'Pune' , 'Female'),
+(12, 'Ilma' , 25 , 'Indore' , 'Female'),
+(13, 'Varisha' , 42 , 'Agra' , 'Female');
+
+
+
+select * from Customer
+where Age>30
+select * from Customer
+where Age>=30
+
+select * from Customer
+where Age>30 and Gender='Male'
+
+select * from  Customer 
+where Age>=30 and Age<40
+
+select * from Customer
+where Location='Bhopal' or Location='Indore'
+
+select * from Customer 
+where Location in ('Bhopal' , 'Indore' , 'Delhi');
+
+select * from Customer 
+where Location='Indore' and Gender='Male' and Age>20;
+
+
+
+
+-- Display the name and age of those customers
+-- whose age is greater than 33 but less than 40
+
+--  Display the name and city of those customers whose 
+-- age is greater than or equal to 30 and less than or
+-- equal to 40 and who lives in Bhopal, Mumbai and Delhi
+
+
+--  Display the name and city of those customers whose 
+-- age is greater than or equal to 30 and who are 
+-- Females.
+
+--Update the Name of customer whose id is 10
+
+--Delete the customers whose Location is Hydrabad.
+
+--Update the Location of Customer whose name is Noor
+
+--Display all the details of customers who are either from Bhopal or Delhi and whose age is less than 20.
+
+
+
+
+
+

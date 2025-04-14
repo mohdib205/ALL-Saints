@@ -1,0 +1,62 @@
+Wildcards
+-- Wildcards are symbols used to replace 
+-- one or more characters in a search. 
+-- They allow us to find words or files that 
+-- match a pattern rather than an exact name.
+
+
+-- %  zero or more characters
+-- _  represents single character (one)
+-- []
+-- ^
+
+select * from Customer
+where Name  like 'A%' and gender='Female';
+select * from Customer
+where Name like '%n'
+
+select * from CUstomer
+where Name like 'I%m'
+
+-- _  represents single character (one)
+
+select * from Customer 
+where Name like '____'
+
+select * from Customer
+where location like '_____'
+
+'[]'
+select * from Customer
+where Name like 'A%'
+
+select * from Customer
+where Name like '[A-N]%'
+
+'^' represents any character not in the bracket
+select * from Customer
+where Name like '[^A-N]%'
+
+
+-- creating a duplicate table
+--  in mssql select * into New_table from original_table
+
+-- create table new_table as select * from original_table
+
+-- create table new_table like original_table;
+
+
+create table  CustomerCopy like Customer;
+
+create table CustomerCopy2 as select
+* from Customer;
+
+select * from Orders
+
+select * from CustomerCopy
+
+insert  CustomerCopy SELECT * FROM Customer;  
+
+
+select * from orders
+
