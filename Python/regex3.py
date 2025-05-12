@@ -14,7 +14,7 @@ print(re.findall(r"apps?",s1))
 #one or many (+)
 print(re.findall(r"apps+",s1))
 
-#zero or many (*)
+#zero or many (*) all
 print(re.findall(r"apps*",s1))
 
 

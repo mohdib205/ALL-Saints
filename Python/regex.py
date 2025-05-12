@@ -26,6 +26,7 @@ regex is a smart way to search and organize
 text easily and efficiently.
 
 '''
+
 import re
 #search return the first occurance as a match object
 str1="fry cry dry try cry Dry Cry a "
@@ -45,10 +46,9 @@ str1="fry cry dry try cry Dry Cry a "
 
 #Replace/edit
 #sub replaces one or many matches with a string
-str1="fry cry dry try cry Dry Cry f "
-print(re.sub("f","k", str1))
+str1="fry cry dry try cry Dry Cry  cry  cry f "
+print(re.sub("cry","subbbb", str1 , count=2))
 print(re.sub("ry","at", str1))
-
 
 ##compile method creates a regex pattern object
 pat1=re.compile("cry")

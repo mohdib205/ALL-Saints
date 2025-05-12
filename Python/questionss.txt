@@ -1,0 +1,74 @@
+
+
+1- Write a Python program that uses regular expressions (regex) to validate whether a given string is a valid phone number. Assume a valid phone number follows the pattern of 10 digits, optionally separated by dashes, spaces, or dots (e.g., 123-456-7890, 123.456.7890, 1234567890).
+
+2- Create a  function that uses regex to validate whether a given password is strong. A strong password must:
+Be at least 8 characters long 
+Contain at least one uppercase letter
+Contain at least one lowercase letter
+Contain at least one digit
+Contain at least one special character (e.g., @, #, $, etc.)
+
+
+3- Write a  program that validates an email address using regular expressions. A valid email should follow the standard format: username@domain.extension (e.g., user@example.com).
+
+
+4- Create a  program to validate a username using regex. The rules are:
+The username can only contain alphanumeric characters and underscores (_)
+It must not include any special characters or spaces
+It must be at least 4 characters long
+
+File Handling + Regex
+
+5- Write a program to count the number of lines in a given text file. The program should open the file, read its content, and print the total number of lines.
+
+
+6- Write a  program that reads a text file, reverses the entire content (including line order and text), and writes the reversed content to a new file. Use file handling operations.
+
+
+7- Create a  function remove_lines(n, file_path) that:
+
+Takes two inputs: a number n and a file path file_path
+Removes the first n lines from the specified file
+Saves the remaining content back to the same file 
+
+Recursion
+
+
+8- Write a recursive function to calculate the factorial of a given number n.
+
+9-Write a recursive function that returns the n-th number in the Fibonacci sequence.
+
+
+
+Exception Handling
+
+10- WAP to  handle IndexError in Python using try-except
+11- Create a program to handle TypeError using try-except.
+
+12- Write a program that adds two values taken from user input. Handle both ValueError (for non-numeric input) and TypeError.
+
+13- Create a simple calculator that performs addition, subtraction, multiplication, and division. Use exception handling for divide-by-zero, invalid operations, and input errors.
+
+14- Write all the above programs again (questions 10,11,12,and 13 ) , catch all the exceptions and  write exceptions  in a text file (error_log.txt) instead of being printed to the console.
+The error_log.txt file will contain all the errors that occurred during the execution of the program:
+for example , error_log.txt will be like :
+
+IndexError: list index out of range
+TypeError: can only concatenate str (not "int") to str
+ValueError: could not convert string to float: 'ibrahim'
+ValueError: Invalid operation selected.
+
+
+
+
+
+
+
+
+
+
+
+
+
+

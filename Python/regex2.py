@@ -1,5 +1,5 @@
 import re
-str1="fry cry dry try cry Dry Cry a cry "
+str1="fry acry dry try cry Dry Cry a cry "
 
 cry_s=re.search("cry" , str1)
 print("start index" ,cry_s.start())
@@ -74,7 +74,7 @@ str1="My name is ibrahim"
 emails='''miibm232005@gmail.com  sww2@gmail.com
         qwert.@wegmail.com'''
 
-print(re.findall("[\w.@*&+-]{1,20}@\w{1,8}\.\w{1,5}", emails))
+print(re.findall("[\w\.@*&+-]{1,20}@\w{1,8}\.\w{1,5}", emails))
 
 
 
