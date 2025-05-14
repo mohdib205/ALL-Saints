@@ -14,7 +14,12 @@ from django.core.mail import send_mail
 @api_view(["GET"])
 def users(request):
     print("")
-    return Response(UserSerializer(MyUser.objects.all() , many=True).data)
+    object=MyUser.objects.get(pk=1)
+    print(object.employee.job_title)
+    ser=UserSerializer(object)
+    response=ser.data
+    response["job"]=object.employee.job_title
+    return Response(response)
 
 @api_view(["GET"])
 def employee_v(request):
@@ -47,6 +52,14 @@ def employee_v2(request):
 def Designation_v(request):
     objects=Designation.objects.all()
     ser=DesignationSerializer(objects, many=True)
+    response=ser.data
+    print(type(objects))
+    for obj,res in zip(objects, response):
+        employess=obj.designations.all()
+        empSer=EmployeeSerializer(employess, many=True)
+        print("\n"*4)
+        print(list(map(lambda x:x["id"] ,empSer.data )))
+        res["employees"]=list(map(lambda x:x["id"] ,empSer.data ))  
     return Response(ser.data)
 
 @api_view(["POST"])

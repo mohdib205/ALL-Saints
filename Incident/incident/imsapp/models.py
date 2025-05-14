@@ -81,7 +81,7 @@ class Designation(models.Model):
 class Employee(models.Model):
 
     user_id = models.OneToOneField(MyUser, on_delete = models.CASCADE , related_name="employee")
-    designation_id = models.ForeignKey(Designation, on_delete = models.CASCADE)
+    designation_id = models.ForeignKey(Designation, on_delete = models.CASCADE , related_name="designations")
     job_title = models.CharField(max_length = 200)
     phone_no = models.CharField(max_length = 50)
     def __str__(self):

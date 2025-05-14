@@ -4,4 +4,5 @@ urlpatterns = [
     path("u/", users),
     path("employee/", employee_v),
     path("emp2/", employee_v2),
+    path("des/", Designation_v),
 ]
