@@ -29,6 +29,13 @@ class DesignationSerializer(ModelSerializer):
         model=Designation
         fields="__all__"
 
+class IncidentTicketSerializer(ModelSerializer):
+    class Meta:
+        model=IncidentTicket
+        fields="__all__"
 
-class PasswordResetEmailSerializer(Serializer):
-    email = serializers.EmailField()
+
+
+
+
+    

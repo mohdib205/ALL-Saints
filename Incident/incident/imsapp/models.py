@@ -79,7 +79,6 @@ class Designation(models.Model):
 
 
 class Employee(models.Model):
-
     user_id = models.OneToOneField(MyUser, on_delete = models.CASCADE , related_name="employee")
     designation_id = models.ForeignKey(Designation, on_delete = models.CASCADE , related_name="designations")
     job_title = models.CharField(max_length = 200)
@@ -88,11 +87,28 @@ class Employee(models.Model):
         return f"Employee: {self.user_id}"
     
 
+class IncidentType(models.Model):
+    name = models.CharField(max_length = 200)
+    department_id = models.ForeignKey(Department, on_delete = models.CASCADE)
+
+class ContributingFactor(models.Model):
+    name = models.CharField(max_length = 200)
 
 
+class DepartmentPOC(models.Model):
+    department_id = models.ForeignKey(Department, on_delete = models.CASCADE , related_name="poc")
+    employee_id = models.ForeignKey(Employee, on_delete = models.CASCADE , related_name="deps")
 
-
-
-
+class IncidentTicket(models.Model):
+    requestor_id = models.ForeignKey(Employee, on_delete = models.CASCADE)
+    report_type = models.ForeignKey(IncidentType, on_delete=models.CASCADE)
+    department = models.ForeignKey(Department, on_delete=models.CASCADE , null = True , blank=True)
+    occurrence_date = models.DateTimeField(auto_now_add=True)
+    location = models.CharField(max_length = 200)
+    risk_level = models.CharField(max_length = 200, null = True , blank=True )
+    department = models.ForeignKey(Department, on_delete = models.CASCADE, null = True, blank = True)   
+    assigned_poc=models.ForeignKey(DepartmentPOC , on_delete=models.CASCADE ,  null = True , blank=True)
+    contributing_factor=models.ManyToManyField("ContributingFactor" , db_table="IncidentFactor")
+        
 
 
