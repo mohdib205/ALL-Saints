@@ -6,9 +6,6 @@ from rest_framework.decorators import api_view
 from rest_framework.response import Response
 from .models import *
 from .serializers import *
-from django.contrib.auth.tokens import PasswordResetTokenGenerator
-from django.utils.http import urlsafe_base64_encode
-from django.utils.encoding import force_bytes
 from django.core.mail import send_mail
 
 @api_view(["GET"])
@@ -78,23 +75,3 @@ def Designation_v(request):
 
 
 
-# @api_view(['PATCH'])
-# def reset_passwordview(request, token=None, uid=None):
-#     if request.method == 'PATCH':
-#         password = request.data.get("password")
-#         if token is None or uid is None or password is None:
-#             return Response({"message": "Missing data"})
-
-#         try:
-#             pk = urlsafe_base64_decode(uid).decode()
-#             user = User.objects.get(pk=pk)
-#             if not PasswordResetTokenGenerator().check_token(user, token):
-#                 return Response({"message": "The reset token is invalid"})
-            
-#             user.set_password(password)
-#             user.save()
-#             return Response({"message": "Password reset successfully"}, )
-#         except User.DoesNotExist:
-#             return Response({"message": "User not found"})
-#         except Exception as e:
-#             return Response({"message": str(e)})
